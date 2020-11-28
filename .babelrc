@@ -1,13 +1,15 @@
 {
   "presets": [
-    "@babel/preset-typescript"
-    /* [
+    "@babel/preset-typescript",
+    [
       "@babel/preset-env",
       {
-        "debug": true,
+        "targets": "defaults"
+        /* "debug": true,
         "useBuiltIns": "entry",
-        "corejs": 3
+        "corejs": 3 */              //to add polyfill
       }
-    ] */ //to add polyfill
-  ]
+    ] 
+  ],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
 }

@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
-    app: "./src/index.ts", // change extension .ts for typescript or .js for javascript
+    app: "./src/index.js", // change extension .ts for typescript or .js for javascript
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -47,17 +47,9 @@ module.exports = {
         // Include ts, tsx, js, and jsx files.
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: [                     
-              ["@babel/preset-env", { targets: "defaults" }]              
-            ],
-            plugins: ["@babel/plugin-proposal-class-properties"],
-          },
-        },
-      },
-    ],
+        loader: "babel-loader"        
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPluging({
@@ -73,6 +65,6 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: "styles/[name].css",
-    }),
-  ],
+    })
+  ]
 };
